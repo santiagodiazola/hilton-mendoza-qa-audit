@@ -1,15 +1,27 @@
-# 🏨 QA Audit: Hilton Mendoza Digital Booking Engine
+# 🏨 Hilton Honors - End-to-End Web Audit
+
+## Project Goal
+To validate the "Golden Path" of the Hilton Honors user journey, focusing on Account Security, Internationalization (i18n), and Search Engine Resilience.
+
+---
 
 ## 📋 Executive Summary
 This project represents a full-stack Quality Assurance audit of the Hilton Mendoza digital booking funnel. The objective was to identify technical regressions, validate backend data integrity via API interception, and evaluate the user experience through a psychological and heuristic lens.
 
 ---
 
-## 🛠️ Technical Stack
+📊 Audit Execution Metrics
+
+---
+
+## 🛠️ Technical Approach
 * **Bug Tracking & Management:** [Trello Project Board](https://trello.com/b/OpY0J1nf/qa-portfolio-bug-tracking)
 * **API Testing:** Postman (RESTful GET/POST Validation)
-* **Diagnostics:** Chrome DevTools (Network Interception, Console, Elements)
+* **Black-Box Testing:** Manual validation of the E2E booking flow.
+* **DevTools Auditing:** Used the Chrome Network Tab to analyze XHR/Fetch requests and response headers.
+* **Boundary Value Analysis (BVA):** Applied to guest occupancy and date selection calendars.
 * **Design Audit:** Heuristic Evaluation (Nielsen’s 10 Usability Principles)
+* **Session Security:** Verified cache invalidation and POST-logout state to prevent PII leaks.
 
 ---
 
@@ -30,6 +42,20 @@ This project represents a full-stack Quality Assurance audit of the Hilton Mendo
 
 ---
 
+## 🧪 Key Test Scenarios
+TC-REG-02: UTF-8 Support in Name Fields (Failed - Bug logged).
+TC-AUTH-01: Session Termination & Cache Invalidation (Passed - Security verified).
+TC-SRCH-04: Inventory Synchronization (Observation - UX discrepancy).
+TC-BOOK-01: Data Persistence during Checkout (Passed).
+
+## 🔴 High-Priority Finding: BUG-001
+Vulnerability: UTF-8 Character Encoding Failure during Registration.
+The Issue: The system fails to process accented characters (e.g., "í", "ñ"), which are standard in Spanish and European locales.
+Technical Analysis: Network Tab (XHR) logs indicate a client-side interceptor error preventing the payload from reaching the server.
+Business Risk: High. This is a total blocker for user acquisition in Latin American and European markets.
+
+---
+
 ## 📊 Final Quality Status
 | Category | Status | Notes |
 | :--- | :--- | :--- |
@@ -37,6 +63,20 @@ This project represents a full-stack Quality Assurance audit of the Hilton Mendo
 | **API/Backend** | PASS ✅ | Suggestion API is secure and responsive. |
 | **Technical Errors** | FAIL ❌ | 1 Critical JS Bug identified in Console. |
 | **UX/UI** | IMPROVED ⚠️ | Recommended 2 enhancements for reduced cognitive load. |
+
+---
+
+🚀 How to Review this Audit
+View the Test Suite: Check the documentation/ folder for the full Master Test Plan.
+Analyze Evidence: Browse the evidence/ folder for annotated screenshots of the UTF-8 registration failure.
+Read the Executive Summary: For a high-level overview of release readiness.
+
+---
+
+
+🚦 Release Recommendation
+Search & Booking: PROCEED with minor UX calendar adjustments.
+Global Registration: HALT. The registration module requires a fix for UTF-8 encoding to support international growth.
 
 ---
 
