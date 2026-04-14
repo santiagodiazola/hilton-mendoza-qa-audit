@@ -27,8 +27,7 @@ This project represents a full-stack Quality Assurance audit of the Hilton digit
 * **API Auditing:** Postman (RESTful Validation) & Chrome DevTools (XHR/Fetch Interception)
 * **Testing Methodologies:** Black-Box, Boundary Value Analysis (BVA), Negative Testing
 * **UX Framework:** Nielsen’s 10 Usability Heuristics & Cognitive Load Theory
-* **Environment:** macOS Sonoma | Chrome v122 | Safari v17.2 (WebKit)
-
+* **Environment:** macOS Sonoma | Chrome v122 
 ---
 
 ## 🔍 Key Audit Domains
@@ -79,4 +78,4 @@ This project represents a full-stack Quality Assurance audit of the Hilton digit
 * **Global (i18n/UTF-8):** **HALT.** Immediate remediation of the registration encoding gate is required for international expansion.
 
 ---
-**Created by [Santiago Diaz Ola](https://github.com/YOUR_USERNAME) - QA Analyst & Clinical Psychologist**
+**Created by [Santiago Diaz Ola](https://github.com/YOUR_USERNAME) - QA Analyst & Behavioral Specialist**
