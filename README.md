@@ -67,9 +67,10 @@ This project represents a full-stack Quality Assurance audit of the Hilton digit
 ---
 
 ## 🚀 How to Review this Audit
-1.  **[Master Test Plan](https://github.com/YOUR_USERNAME/hilton-audit/tree/main/documentation):** View the full TP-001 strategy and methodology.
-2.  **[Evidence Vault](https://github.com/YOUR_USERNAME/hilton-audit/tree/main/evidence):** Annotated screenshots of bugs and successful validation states.
-3.  **[Defect Log](https://github.com/YOUR_USERNAME/hilton-audit/tree/main/defects):** Detailed technical breakdown of BUG-001.
+1.  **[Test Plan](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/blob/main/documentation/test-plan/Hilton_Test_Plan_v1.pdf):** View the full TP-001 strategy and methodology.
+2.  **[Evidence Vault](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/tree/main/evidence):** Annotated screenshots of bugs and successful validation states.
+3.  **[Defect Log](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/blob/main/documentation/bug-report/BUG-001%20Registration%20Failure.pdf):** Detailed technical breakdown of BUG-001.
+4.  **[Quality Summary Report](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/blob/main/documentation/TestRail/Hilton_Honors_QA_Audit_Summary_Report_Santiago_Diaz.pdf):** An executive TestRail export summarizing coverage across 11+ test cases and module-specific pass rates.
 
 ---
 
