@@ -7,14 +7,14 @@ This project was executed as a portfolio artifact to demonstrate professional te
 
 ---
 
-## 🧮 Scope & Methodology
+## 📊 Scope & Methodology
 - **Focus Areas:** User registration flow, UTF-8 multi-byte character handling, and form validation using Boundary Value Analysis (BVA).
 - **Techniques:** Exploratory testing, negative scenario validation, and network layer inspection via browser dev tools.
 - **Artifacts Managed:** Test Plan, Traceability Matrix (11 test cases), Defect Log, and structured evidence screenshots (managed via TestRail and Trello workflows).
 
 ---
 
-## 🔐 Key Finding: UTF-8 Character Handling Defect (BUG-001)
+## 🎯 Key Finding: UTF-8 Character Handling Defect (BUG-001)
 
 During multi-byte character validation testing (using names containing accented characters common in Spanish and European locales), a registration-blocking functional defect was isolated.
 
