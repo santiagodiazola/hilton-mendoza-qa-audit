@@ -22,6 +22,9 @@ During multi-byte character validation testing (using names containing accented 
 * **Impact:** Blocks account creation for users with standard internationalized characters in their names.
 * **Evidence:** Local browser inspection and network payload tracking confirm form-submission rejection.
 
+![Bug Evidence](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/blob/main/evidence/Evidence%20BUG-001.png)
+*Console evidence showing a JavaScript execution failure in the registration module when processing non-standard UTF-8 characters (e.g., "í").*
+
 ---
 
 ## 🛠️ Tools & Ecosystem
