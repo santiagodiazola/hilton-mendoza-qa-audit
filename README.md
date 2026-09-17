@@ -1,68 +1,33 @@
-# 🏨 Hilton Honors - End-to-End Web Quality Audit
+# 🏨 Hilton Honors - Exploratory QA & Functional Audit
 
-## 🎯 Project Mission
-To execute a high-rigor functional and technical audit of the **Hilton Honors** user conversion funnel. This audit prioritizes **Internationalization (i18n)** resilience, **Session Integrity**, and **Search Engine UX**, ensuring the platform is ready for global market expansion.
+## 📈 Executive Overview
+A structured, self-directed quality assurance audit evaluating the user registration funnel, input sanitization, and internationalization (i18n) handling on the Hilton platform. 
 
----
-
-## 📋 Executive Overview
-This project represents a full-stack Quality Assurance audit of the Hilton digital booking engine. Beyond standard functional validation, this audit utilizes **API interception** to verify backend data integrity and a **Psychological/Heuristic lens** to evaluate user friction and cognitive load.
+This project was executed as a portfolio artifact to demonstrate professional test planning, execution, and defect reporting standards.
 
 ---
 
-## 📊 Quality Metrics at a Glance
-
-| Category | Metric | Status |
-| :--- | :--- | :--- |
-| **Total Test Cases** | 11 | 100% Executed |
-| **Pass Rate** | 91% | Stable Core |
-| **Critical Defects** | 1 | i18n Blocker (BUG-001) |
-| **JS Console Errors** | 1 | ReferenceError identified |
-| **Release Status** | **CONDITIONAL** | Halt for Spanish/EU locales |
+## 🧮 Scope & Methodology
+- **Focus Areas:** User registration flow, UTF-8 multi-byte character handling, and form validation using Boundary Value Analysis (BVA).
+- **Techniques:** Exploratory testing, negative scenario validation, and network layer inspection via browser dev tools.
+- **Artifacts Managed:** Test Plan, Traceability Matrix (11 test cases), Defect Log, and structured evidence screenshots (managed via TestRail and Trello workflows).
 
 ---
 
-## 🛠️ Technical Toolkit
-* **Project Management:** [Interactive Trello Board](https://trello.com/b/OpY0J1nf/qa-portfolio-bug-tracking)
-* **API Auditing:** Postman (RESTful Validation) & Chrome DevTools (XHR/Fetch Interception)
-* **Testing Methodologies:** Black-Box, Boundary Value Analysis (BVA), Negative Testing
-* **UX Framework:** Nielsen’s 10 Usability Heuristics & Cognitive Load Theory
-* **Environment:** macOS Sonoma | Chrome v122 
----
+## 🔐 Key Finding: UTF-8 Character Handling Defect (BUG-001)
 
-## 🔍 Key Audit Domains
+During multi-byte character validation testing (using names containing accented characters common in Spanish and European locales), a registration-blocking functional defect was isolated.
 
-### 1. Technical & API Integrity
-* **Traffic Interception:** Monitored the `GET /autocomplete` endpoint via the Network Tab to validate dynamic destination mapping.
-* **Endpoint Resilience:** Verified that query parameters (e.g., `input=Mendoz`) trigger efficient `200 OK` responses from the **Unbxd** search provider.
-* **Console Stability:** Documented a critical `ReferenceError` (`ttd_dom_ready`) affecting tracking pixels and page initialization scripts.
-
-### 2. Internationalization (i18n) & Logic
-* **Encoding Audit:** Targeted testing of the registration module using **UTF-8 characters** (e.g., "Díaz Ola").
-* **Boundary Analysis:** Validated the $T+0$ date-picker logic to prevent historical reservations and malformed search queries.
-
-### 3. Psychology-Driven UX (Heuristic Audit)
-* **Recognition vs. Recall:** Analyzed search parameter persistence to ensure the system retains user intent (dates/guests) throughout the funnel.
-* **Friction Analysis:** Evaluated the Call-to-Action (CTA) hierarchy to minimize "Decision Paralysis" during the property selection phase.
+* **Summary:** The registration form fails to process or serialize special characters correctly, resulting in an unhandled response error during account creation.
+* **Impact:** Blocks account creation for users with standard internationalized characters in their names.
+* **Evidence:** Local browser inspection and network payload tracking confirm form-submission rejection.
 
 ---
 
-## 🧪 Highlighted Test Scenarios
-
-| ID | Scenario | Result | Key Finding |
-| :--- | :--- | :--- | :--- |
-| **TC-REG-02** | UTF-8 Character Support | ❌ **FAIL** | Registration blocks accented characters (Blocker). |
-| **TC-AUTH-01** | Session Termination | ✅ **PASS** | Cache invalidated; no PII leaks post-logout. |
-| **TC-SRCH-04** | Inventory Synchronization | ⚠️ **OBS** | UI allows 24-month selection; API capped at 12. |
-| **TC-BOOK-01** | Data Persistence | ✅ **PASS** | Profile data successfully maps to checkout form. |
-
----
-
-## 🔴 High-Priority Finding: BUG-001
-**Vulnerability:** UTF-8 Character Encoding Failure during Registration.
-* **The Issue:** The registration module fails to process accented characters common in Spanish and European locales.
-* **Technical Analysis:** XHR logs indicate a client-side interceptor error preventing the payload from reaching the server.
-* **Business Impact:** **Market Blocker.** This represents a total barrier to user acquisition in LATAM and EU markets.
+## 🛠️ Tools & Ecosystem
+* **Test Management:** TestRail, Trello. [Interactive Trello Board](https://trello.com/b/OpY0J1nf/qa-portfolio-bug-tracking)
+* **Techniques:** Risk-Based Testing (RBT), Boundary Value Analysis, Negative Testing
+* **Inspection:** Chrome DevTools (Network & Console inspection)
 
 ---
 
@@ -72,11 +37,3 @@ This project represents a full-stack Quality Assurance audit of the Hilton digit
 3.  **[Defect Log](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/blob/main/documentation/bug-report/BUG-001%20Registration%20Failure.pdf):** Detailed technical breakdown of BUG-001.
 4.  **[Quality Summary Report](https://github.com/santiagodiazola/hilton-mendoza-qa-audit/blob/main/documentation/TestRail/Hilton_Honors_QA_Audit_Summary_Report_Santiago_Diaz.pdf):** An executive TestRail export summarizing coverage across 11+ test cases and module-specific pass rates.
 
----
-
-## 🚦 Final Release Recommendation
-* **Domestic (US/ASCII):** **PROCEED.** Core booking logic is highly stable.
-* **Global (i18n/UTF-8):** **HALT.** Immediate remediation of the registration encoding gate is required for international expansion.
-
----
-**Created by [Santiago Diaz Ola](https://github.com/YOUR_USERNAME) - QA Analyst & Behavioral Specialist**
